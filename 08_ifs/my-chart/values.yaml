@@ -1,0 +1,2 @@
+horizontalPodAutoscaler:
+  enabled: false
