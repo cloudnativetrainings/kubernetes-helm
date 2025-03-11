@@ -73,11 +73,13 @@ kustomize build overlays/dev
 You can have 2 options to deploy:
 
 1. Kustomize CLI:
+
 ```bash
 kustomize build overlays/dev | kubectl apply -f -
 ```
 
 2. Kubectl:
+
 ```bash
 kubectl apply -k overlays/dev
 ```
@@ -89,7 +91,8 @@ Checkout the pods and verify that the application is running:
 kubectl get pods -n dev
 ```
 
-Access the page via curl: 
+Access the page via curl:
+
 ```bash
 curl http://${INGRESS_IP}/dev
 ```
@@ -145,7 +148,7 @@ Then, reach via below URLs:
 echo "https://${CODESPACE_NAME}-80.app.github.dev/prod"
 ```
 
-# Cleanup
+## Cleanup
 
 ```bash
 # delete the deployments:

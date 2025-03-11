@@ -86,7 +86,7 @@ Access the endpoint via
 curl http://${INGRESS_IP}
 ```
 
->Note the output now gets calculated via the `id` function defined in the file `_helpers.tpl`. The expected output is `my-chart-helper-functions`
+> Note the output now gets calculated via the `id` function defined in the file `_helpers.tpl`. The expected output is `my-chart-helper-functions`
 
 If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
 

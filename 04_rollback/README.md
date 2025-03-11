@@ -8,7 +8,7 @@ In this task, we will rollback a release.
 > export INGRESS_IP=$(kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[].ip}')
 > ```
 
-### Inspect the Helm Chart
+## Inspect the Helm Chart
 
 ```bash
 cd /workspaces/helm/04_rollback
@@ -24,7 +24,8 @@ cat color-viewer/values.yaml
 helm install my-app ./color-viewer
 ```
 
-Access the page via curl: 
+Access the page via curl:
+
 ```bash
 curl http://${INGRESS_IP}/red
 ```
@@ -50,6 +51,7 @@ helm upgrade my-app --set color=blue ./color-viewer
 You can visit the app on `http://${INGRESS_IP/blue`
 
 Take a look at the Helm releases
+
 ```bash
 helm ls
 ```
@@ -57,6 +59,7 @@ helm ls
 ## History and changes
 
 Take a look at the history of my-app
+
 ```bash
 helm history my-app
 ```
@@ -87,7 +90,8 @@ Check the history again
 helm history my-app
 ```
 
-Access the page via curl: 
+Access the page via curl:
+
 ```bash
 curl http://${INGRESS_IP}/red
 ```
