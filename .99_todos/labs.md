@@ -8,6 +8,7 @@ helm upgrade --install cilium cilium \
 ## idempotent
 
 helm upgrade --install
+
 ## helm chart verification
 
 https://www.douglashellinger.com/how-to/proxy-public-chart-repositories-as-oci-artefacts/
@@ -23,3 +24,7 @@ Chart security - sign and verify charts.
 ## {{ vs { {
 
 verify no whitespaces are in there
+
+## test lab
+
+use job instead of pod for testing
