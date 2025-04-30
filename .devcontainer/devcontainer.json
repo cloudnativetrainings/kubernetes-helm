@@ -13,7 +13,7 @@
           ".devcontainer/": true,
           ".99_todos/": true,
           "pre-checks.sh": true,
-          "makefile": true,
+          "makefile": true
         }
       }
     }
