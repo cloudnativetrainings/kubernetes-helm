@@ -28,7 +28,3 @@ verify no whitespaces are in there
 ## test lab
 
 use job instead of pod for testing
-
-## setup
-
-move $INGRESS_IP into ~/.trainingrc

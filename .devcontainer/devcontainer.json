@@ -1,6 +1,6 @@
 {
   "name": "Kubernetes Helm Training Labs",
-  "image": "quay.io/kubermatic-labs/training-ghcs-kubernetes-helm-trainee-environment:1.0.1",
+  "image": "quay.io/kubermatic-labs/training-ghcs-kubernetes-helm-trainee-environment:1.0.2",
   "customizations": {
     "vscode": {
       "settings": {

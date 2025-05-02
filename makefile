@@ -9,8 +9,5 @@ verify:
 	kubens
 	helm version
 	kustomize version
-	echo "Training Environment successfully verified"
-
-.PHONY: verify-cluster
-verify-cluster: 
 	./pre-checks.sh
+	echo "Training Environment successfully verified"
