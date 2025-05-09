@@ -21,10 +21,6 @@ Create and package helm charts. Use OCI registry
 Helm Templates
 Chart security - sign and verify charts.
 
-## {{ vs { {
-
-verify no whitespaces are in there
-
 ## test lab
 
 use job instead of pod for testing

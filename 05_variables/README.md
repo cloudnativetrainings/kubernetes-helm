@@ -12,10 +12,9 @@ tree .
 Update the file `./color-viewer/templates/deployment.yaml` as below:
 
 ```yaml
-
 ---
 spec:
-  replicas: { { .Values.replicas } }
+  replicas: "{{ .Values.replicas }}"
   selector:
 ```
 
