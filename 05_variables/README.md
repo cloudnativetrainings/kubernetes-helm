@@ -14,7 +14,7 @@ Update the file `./color-viewer/templates/deployment.yaml` as below:
 ```yaml
 ---
 spec:
-  replicas: "{{ .Values.replicas }}"
+  replicas: "{{ .Values.replicas }}" # note, to remove the " characters due to replicas expects a number, not a string value
   selector:
 ```
 

@@ -100,7 +100,7 @@ Then, reach via below URLs:
 echo "https://${CODESPACE_NAME}-80.app.github.dev/"
 ```
 
-## Cleanup
+## Cleanup again
 
 ```bash
 # delete the resources

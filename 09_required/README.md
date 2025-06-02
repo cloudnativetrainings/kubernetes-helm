@@ -20,8 +20,6 @@ tree .
 Edit `./my-chart/templates/deployment.yaml` file:
 
 ```yaml
-
----
 containers:
   - name: my-nginx
     image: nginx:{{ required "A nginx version is required!" .Values.tag }}
