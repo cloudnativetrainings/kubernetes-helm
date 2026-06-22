@@ -45,13 +45,9 @@ Access the endpoint via
 curl ${INGRESS_IP}
 ```
 
-If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
+Or, reach via below URLs:
 
-```bash
-# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
-```
-
-Then, reach via below URLs:
+> Note port-forwarding still has to happen for this to work.
 
 ```bash
 echo "https://${CODESPACE_NAME}-8080.app.github.dev/"

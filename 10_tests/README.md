@@ -33,7 +33,7 @@ helm install my-app ./my-app
 kubectl wait pod -l app=my-app --for=condition=ready --timeout=120s
 ```
 
-### Run the test again
+### Run the test
 
 ```bash
 helm test my-app

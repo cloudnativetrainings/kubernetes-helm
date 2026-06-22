@@ -29,13 +29,9 @@ Afterwards, you can visit the app via curl:
 curl http://${INGRESS_IP}/dev/blue
 ```
 
-If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
+Or, reach via below URLs:
 
-```bash
-# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
-```
-
-Then, reach via below URLs:
+> Note port-forwarding still has to happen for this to work.
 
 ```bash
 echo "https://${CODESPACE_NAME}-8080.app.github.dev/dev/blue"
@@ -59,13 +55,9 @@ Afterwards, you can visit the app via curl:
 curl http://${INGRESS_IP}/dev/red
 ```
 
-If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
+Or, reach via below URLs:
 
-```bash
-# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
-```
-
-Then, reach via below URLs:
+> Note port-forwarding still has to happen for this to work.
 
 ```bash
 echo "https://${CODESPACE_NAME}-8080.app.github.dev/dev/red"
@@ -90,13 +82,9 @@ Afterwards, you can visit the app via curl:
 curl http://${INGRESS_IP}/prod/blue
 ```
 
-If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
+Or, reach via below URLs:
 
-```bash
-# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
-```
-
-Then, reach via below URLs:
+> Note port-forwarding still has to happen for this to work.
 
 ```bash
 echo "https://${CODESPACE_NAME}-8080.app.github.dev/prod/blue"
@@ -120,13 +108,9 @@ Afterwards, you can visit the app via curl:
 curl http://${INGRESS_IP}/prod/red
 ```
 
-If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
+Or, reach via below URLs:
 
-```bash
-# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
-```
-
-Then, reach via below URLs:
+> Note port-forwarding still has to happen for this to work.
 
 ```bash
 echo "https://${CODESPACE_NAME}-8080.app.github.dev/prod/red"
