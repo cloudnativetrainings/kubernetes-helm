@@ -8,6 +8,7 @@ verify:
 	kubectx
 	kubens
 	helm version
+	helmfile version
 	kustomize version
 	./pre-checks.sh
 	echo "Training Environment successfully verified"
