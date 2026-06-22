@@ -17,7 +17,7 @@ tree .
 
 ## Adapt the Configmap to the following
 
-Update `./my-chart/templates/configmap.yaml` file as follows"
+Update `./my-chart/templates/configmap.yaml` file as follows:
 
 ```yaml
 apiVersion: v1
@@ -87,22 +87,19 @@ This is a Kubernetes feature and you can use it with Helm like this:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ template "id" . }}"
+  name: {{ template "id" . }}
 spec:
   replicas: 1
   selector:
-    matchLabels: "{{ - include "labels" . | nindent 6 }}"
+    matchLabels:
+      {{- include "labels" . | nindent 6 }}
   template:
     metadata:
-      labels: "{{ - include "labels" . | nindent 8 }}"
+      labels:
+        {{- include "labels" . | nindent 8 }}
       annotations:
         ## Here is the magic!
-        checksum/config:
-          {
-            {
-              include (print $.Template.BasePath "/configmap.yaml") . | sha256sum,
-            },
-          }
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       containers:
         - name: my-nginx
@@ -130,7 +127,7 @@ spec:
 
 ## Check the HPA configuration
 
-Check if any Horizantal Pod Autoscaler is installed:
+Check if any Horizontal Pod Autoscaler is installed:
 
 ```bash
 kubectl get hpa

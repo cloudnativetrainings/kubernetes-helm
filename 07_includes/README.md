@@ -1,6 +1,6 @@
 # Using the 'include' Function
 
-In this task, you will make use of include' function.
+In this task, you will make use of the `include` function.
 
 > `INGRESS_IP` environment variable is supposed to be set during the setup. You can always set it this way:
 >
@@ -42,8 +42,9 @@ For example, edit `my-chart/templates/deployment.yaml` and add labels to the met
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ template "id" . }}"
-  labels: "{{ - include "labels" . | nindent 2 }}"
+  name: {{ template "id" . }}
+  labels:
+    {{- include "labels" . | nindent 2 }}
 spec:
   replicas: 1
 ```

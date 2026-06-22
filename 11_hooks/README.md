@@ -42,7 +42,7 @@ kubectl delete job --all
 
 ## Running weighted Hooks
 
-Add an additional pre-install Hook by copying the hook-pre-install-yaml file.
+Add an additional pre-install Hook by copying the hook-pre-install.yaml file.
 
 Add weights to the pre-install Hooks via the annotation `"helm.sh/hook-weight": "1"`.
 

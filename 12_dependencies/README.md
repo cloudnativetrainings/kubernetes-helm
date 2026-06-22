@@ -4,7 +4,7 @@ In this task, you will learn about Dependencies.
 
 ## Inspect the Charts
 
-Take a look athe `Chart.yaml` file. There is a dependency defined for the Chart called `my-dependency`.
+Take a look at the `Chart.yaml` file. There is a dependency defined for the Chart called `my-dependency`.
 
 ```bash
 cd /workspaces/helm/12_dependencies

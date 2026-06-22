@@ -13,7 +13,7 @@ cd /workspaces/helm/02_deploy-with-kustomize
 tree .
 ```
 
-You will see that, there are 2 directories: base and overlay. Under overlay, there is dev and prod, which are configured to deploy on different namespaces on the cluster.
+You will see that there are 2 directories: base and overlay. Under overlay, there is dev and prod, which are configured to deploy on different namespaces on the cluster.
 
 ## Inspect base kustomization.yaml
 
@@ -43,7 +43,7 @@ cat overlays/dev/kustomization.yaml
 cat overlays/prod/kustomization.yaml
 ```
 
-- Get all resource from and and configmap.yaml from the current directory
+- Get all resources from base and configmap.yaml from the current directory
 - Add environment=prod label to all resources created
 - Annotate all resources created with managed-by=kustomize
 - Add namespace=prod to all resources created

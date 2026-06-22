@@ -48,7 +48,7 @@ echo "https://${CODESPACE_NAME}-80.app.github.dev/red"
 helm upgrade my-app --set color=blue ./color-viewer
 ```
 
-You can visit the app on `http://${INGRESS_IP/blue`
+You can visit the app on `http://${INGRESS_IP}/blue`
 
 Take a look at the Helm releases
 

@@ -13,7 +13,7 @@ tree .
 
 ## Inspect the test
 
-A Kubernetes Job to check ir the App responses successfully:
+A Kubernetes Job to check if the App responds successfully:
 
 ```bash
 cat ./my-app/templates/tests/test-my-app.yaml
@@ -21,7 +21,7 @@ cat ./my-app/templates/tests/test-my-app.yaml
 
 ## Run the test
 
-### Relase the app
+### Release the app
 
 ```bash
 helm install my-app ./my-app
