@@ -3,7 +3,7 @@
 In this task, we will add a variable to our Helm Chart.
 
 ```bash
-cd /workspaces/helm/05_variables
+cd /workspaces/kubernetes-helm/05_variables
 tree .
 ```
 

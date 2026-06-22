@@ -2,16 +2,10 @@
 
 In this task, you will learn how to implement helper functions.
 
-> `INGRESS_IP` environment variable is supposed to be set during the setup. You can always set it this way:
->
-> ```bash
-> export INGRESS_IP=$(kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[].ip}')
-> ```
-
 ## Run the Helm Chart
 
 ```bash
-cd /workspaces/helm/06_functions
+cd /workspaces/kubernetes-helm/06_functions
 helm install my-app ./my-chart
 ```
 
@@ -30,13 +24,13 @@ curl http://${INGRESS_IP}
 If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
 
 ```bash
-kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 80
+# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
 ```
 
 Then, reach via below URLs:
 
 ```bash
-echo "https://${CODESPACE_NAME}-80.app.github.dev/"
+echo "https://${CODESPACE_NAME}-8080.app.github.dev/"
 ```
 
 ### Cleanup
@@ -91,13 +85,13 @@ curl http://${INGRESS_IP}
 If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
 
 ```bash
-kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 80
+# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
 ```
 
 Then, reach via below URLs:
 
 ```bash
-echo "https://${CODESPACE_NAME}-80.app.github.dev/"
+echo "https://${CODESPACE_NAME}-8080.app.github.dev/"
 ```
 
 ## Cleanup again

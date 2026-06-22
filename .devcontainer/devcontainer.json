@@ -47,5 +47,10 @@
     80,
     443
   ],
-  "postCreateCommand": "/setup_kind_cluster.sh"
+  "postCreateCommand": "/setup_kind_cluster.sh",
+  "postStartCommand": [
+    "bash",
+    "-c",
+    "pgrep -f 'port-forward svc/ingress-nginx-controller' >/dev/null || nohup bash -c 'while true; do kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80; sleep 10; done' >/tmp/ingress-port-forward.log 2>&1 &"
+  ]
 }

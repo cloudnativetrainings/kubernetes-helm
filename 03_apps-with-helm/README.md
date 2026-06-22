@@ -2,18 +2,12 @@
 
 In this task, we will use Helm for installing the app.
 
-> `INGRESS_IP` environment variable is supposed to be set during the setup. You can always set it this way:
->
-> ```bash
-> export INGRESS_IP=$(kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[].ip}')
-> ```
-
 ## Using a Helm Chart without customization
 
 ### Inspect the Helm Chart
 
 ```bash
-cd /workspaces/helm/03_apps-with-helm
+cd /workspaces/kubernetes-helm/03_apps-with-helm
 tree color-viewer
 ```
 
@@ -75,13 +69,13 @@ curl http://${INGRESS_IP}/dev
 If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
 
 ```bash
-kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 80
+# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
 ```
 
 Then, reach via below URLs:
 
 ```bash
-echo "https://${CODESPACE_NAME}-80.app.github.dev/dev"
+echo "https://${CODESPACE_NAME}-8080.app.github.dev/dev"
 ```
 
 ## Deploy prod
@@ -116,13 +110,13 @@ curl http://${INGRESS_IP}/prod
 If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
 
 ```bash
-kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 80
+# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
 ```
 
 Then, reach via below URLs:
 
 ```bash
-echo "https://${CODESPACE_NAME}-80.app.github.dev/prod"
+echo "https://${CODESPACE_NAME}-8080.app.github.dev/prod"
 ```
 
 ### Cleanup

@@ -2,16 +2,10 @@
 
 In this task, you will make use of an if statement.
 
-> `INGRESS_IP` environment variable is supposed to be set during the setup. You can always set it this way:
->
-> ```bash
-> export INGRESS_IP=$(kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[].ip}')
-> ```
-
 ## Inspect the Helm Chart
 
 ```bash
-cd /workspaces/helm/08_ifs
+cd /workspaces/kubernetes-helm/08_ifs
 tree .
 ```
 

@@ -7,7 +7,7 @@ In this task, you will learn how to test your Chart.
 See the chart files. This one includes a test directory:
 
 ```bash
-cd /workspaces/helm/10_tests
+cd /workspaces/kubernetes-helm/10_tests
 tree .
 ```
 

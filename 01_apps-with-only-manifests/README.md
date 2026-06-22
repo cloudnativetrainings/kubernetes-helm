@@ -2,16 +2,10 @@
 
 ## Manifests
 
-> `INGRESS_IP` environment variable is supposed to be set during the setup. You can always set it this way:
->
-> ```bash
-> export INGRESS_IP=$(kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[].ip}')
-> ```
-
 Check the manifests:
 
 ```bash
-cd /workspaces/helm/01_apps-with-only-manifests
+cd /workspaces/kubernetes-helm/01_apps-with-only-manifests
 
 tree .
 ```
@@ -38,13 +32,13 @@ curl http://${INGRESS_IP}/dev/blue
 If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
 
 ```bash
-kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 80
+# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
 ```
 
 Then, reach via below URLs:
 
 ```bash
-echo "https://${CODESPACE_NAME}-80.app.github.dev/dev/blue"
+echo "https://${CODESPACE_NAME}-8080.app.github.dev/dev/blue"
 ```
 
 ## Create the red app on Development environment
@@ -68,13 +62,13 @@ curl http://${INGRESS_IP}/dev/red
 If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
 
 ```bash
-kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 80
+# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
 ```
 
 Then, reach via below URLs:
 
 ```bash
-echo "https://${CODESPACE_NAME}-80.app.github.dev/dev/red"
+echo "https://${CODESPACE_NAME}-8080.app.github.dev/dev/red"
 ```
 
 ## Create the blue app on Production
@@ -99,13 +93,13 @@ curl http://${INGRESS_IP}/prod/blue
 If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
 
 ```bash
-kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 80
+# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
 ```
 
 Then, reach via below URLs:
 
 ```bash
-echo "https://${CODESPACE_NAME}-80.app.github.dev/prod/blue"
+echo "https://${CODESPACE_NAME}-8080.app.github.dev/prod/blue"
 ```
 
 ## Create the red app on Production
@@ -129,13 +123,13 @@ curl http://${INGRESS_IP}/prod/red
 If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
 
 ```bash
-kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 80
+# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
 ```
 
 Then, reach via below URLs:
 
 ```bash
-echo "https://${CODESPACE_NAME}-80.app.github.dev/prod/red"
+echo "https://${CODESPACE_NAME}-8080.app.github.dev/prod/red"
 ```
 
 ## How long will it take to make a green app on both environments?

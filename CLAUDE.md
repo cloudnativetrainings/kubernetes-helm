@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is **training material**, not an application. It is a hands-on Kubernetes Helm course delivered through GitHub Codespaces. Each top-level numbered directory (`01_…` through `12_…`) is one self-contained lab that a trainee works through in order. There is nothing to build or deploy as a product — the "code" is the lab content, and the deliverable is a correct, clear, working lab.
 
-The labs run inside a prebuilt devcontainer image (`quay.io/kubermatic-labs/training-ghcs-kubernetes-helm-trainee-environment`) that ships docker, kind, kubectl, kubectx/kubens, helm, and kustomize. A kind cluster (`my-cluster`) plus `cloud-provider-kind` and ingress-nginx are created by `postCreateCommand: /setup_kind_cluster.sh`. The host paths used by trainees live under `/workspaces/helm/<lab>` — lab READMEs `cd` there, so any commands you suggest should match that path.
+The labs run inside a prebuilt devcontainer image (`quay.io/kubermatic-labs/training-ghcs-kubernetes-helm-trainee-environment`) that ships docker, kind, kubectl, kubectx/kubens, helm, and kustomize. A kind cluster (`my-cluster`) plus `cloud-provider-kind` and ingress-nginx are created by `postCreateCommand: /setup_kind_cluster.sh`. The host paths used by trainees live under `/workspaces/kubernetes-helm/<lab>` — lab READMEs `cd` there, so any commands you suggest should match that path.
 
 ## Lab anatomy
 
@@ -47,7 +47,7 @@ Three repo-local skills assist with maintaining lab content:
 - `md-linter` ("lint md") — checks README prose for typos/grammar, ignoring code.
 - `secrets-remover` ("remove secrets") — scans for credentials before pushing.
 
-Both linters scope themselves: a numeric argument (e.g. `05`) targets that one lab; otherwise they restrict to `git diff` changes if any exist, else scan all `*/README.md`. They skip `.99_todos/`. Note: the linter skill text references a `/training` path prefix, but the actual labs use `/workspaces/helm/` — follow the labs.
+Both linters scope themselves: a numeric argument (e.g. `05`) targets that one lab; otherwise they restrict to `git diff` changes if any exist, else scan all `*/README.md`. They skip `.99_todos/`. Note: the linter skill text references a `/training` path prefix, but the actual labs use `/workspaces/kubernetes-helm/` — follow the labs.
 
 ## Conventions and excluded paths
 

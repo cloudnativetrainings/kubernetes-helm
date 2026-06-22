@@ -7,7 +7,7 @@ In this task, you will learn about Dependencies.
 Take a look at the `Chart.yaml` file. There is a dependency defined for the Chart called `my-dependency`.
 
 ```bash
-cd /workspaces/helm/12_dependencies
+cd /workspaces/kubernetes-helm/12_dependencies
 
 tree
 

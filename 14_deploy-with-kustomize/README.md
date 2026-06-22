@@ -2,14 +2,8 @@
 
 ## Inspect the Layout
 
-> `INGRESS_IP` environment variable is supposed to be set during the setup. You can always set it this way:
->
-> ```bash
-> export INGRESS_IP=$(kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[].ip}')
-> ```
-
 ```bash
-cd /workspaces/helm/02_deploy-with-kustomize
+cd /workspaces/kubernetes-helm/14_deploy-with-kustomize
 tree .
 ```
 
@@ -51,9 +45,9 @@ cat overlays/prod/kustomization.yaml
 - Patch ingress to change the URL path
 - Patch deployment to use different Pod resources
 
-# Deploy using Kustomize
+## Deploy using Kustomize
 
-## Create Namespaces
+### Create Namespaces
 
 In this demo, we assume the `dev` and `prod` workloads are deployed on the respective namespaces:
 
@@ -62,7 +56,7 @@ kubectl create namespace dev
 kubectl create namespace prod
 ```
 
-## Deploy dev
+### Deploy dev
 
 First, inspect the generated manifest:
 
@@ -78,7 +72,7 @@ You can have 2 options to deploy:
 kustomize build overlays/dev | kubectl apply -f -
 ```
 
-2. Kubectl:
+1. Kubectl:
 
 ```bash
 kubectl apply -k overlays/dev
@@ -100,16 +94,16 @@ curl http://${INGRESS_IP}/dev
 If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
 
 ```bash
-kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 80
+# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
 ```
 
 Then, reach via below URLs:
 
 ```bash
-echo "https://${CODESPACE_NAME}-80.app.github.dev/dev"
+echo "https://${CODESPACE_NAME}-8080.app.github.dev/dev"
 ```
 
-## Deploy prod
+### Deploy prod
 
 First, inspect the generated manifest:
 
@@ -139,13 +133,13 @@ curl http://${INGRESS_IP}/prod
 If you want to reach it via browser, you first need to port-forward ingress-nginx-controller service:
 
 ```bash
-kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 80
+# TODO kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80
 ```
 
 Then, reach via below URLs:
 
 ```bash
-echo "https://${CODESPACE_NAME}-80.app.github.dev/prod"
+echo "https://${CODESPACE_NAME}-8080.app.github.dev/prod"
 ```
 
 ## Cleanup

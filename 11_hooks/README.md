@@ -7,7 +7,7 @@ In this task, you will learn how to write Hooks.
 Take a look at the Hooks.
 
 ```bash
-cd /workspaces/helm/11_hooks
+cd /workspaces/kubernetes-helm/11_hooks
 
 cat ./my-app/templates/hook-pre-install.yaml
 
