@@ -45,7 +45,7 @@ helm install ifs ./my-chart --set meta=true
 Wait until the pods are ready
 
 ```bash
-kubectl wait pod -l  app.kubernetes.io/instance=ifs --for=condition=ready --timeout=120s
+kubectl wait pod -l app.kubernetes.io/instance=ifs --for=condition=ready --timeout=120s
 ```
 
 Access the endpoint via
@@ -149,7 +149,7 @@ Now, let's enable HPA:
 helm upgrade ifs ./my-chart --set horizontalPodAutoscaler.enabled=true
 ```
 
-Checkout if a HPA is created:
+Check whether an HPA is created:
 
 ```bash
 kubectl get hpa

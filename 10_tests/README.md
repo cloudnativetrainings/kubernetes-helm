@@ -64,7 +64,7 @@ helm upgrade my-app ./my-app/
 helm test my-app
 ```
 
-> Note that the test is failing due to the service is not reachable from the curl command of the test.
+> Note that the test is failing because the service is not reachable from the curl command of the test.
 
 ### Check the logfile of the test
 

@@ -51,13 +51,13 @@ Deploy your application with Helm:
 helm install demo-app ./color-viewer --namespace=dev --create-namespace
 ```
 
-Checkout the status of the installation:
+Check out the status of the installation:
 
 ```bash
 helm ls -A
 ```
 
-Checkout the pods and verify that the application is running:
+Check out the pods and verify that the application is running:
 
 ```bash
 # Wait until the pod is ready:
@@ -88,13 +88,13 @@ Deploy your application with Helm:
 helm install demo-app ./color-viewer --namespace=prod --create-namespace -f prod-values.yaml
 ```
 
-Checkout the status of the installation:
+Check out the status of the installation:
 
 ```bash
 helm ls -A
 ```
 
-Checkout the pods and verify that the application is running. There must be 3 pods running.
+Check out the pods and verify that the application is running. There must be 3 pods running.
 
 ```bash
 # Wait until the pod is ready:

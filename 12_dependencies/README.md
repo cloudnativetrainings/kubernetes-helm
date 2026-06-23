@@ -29,7 +29,7 @@ helm dependency update ./my-app
 helm dependency list ./my-app
 ```
 
-> Note that the `Charts.lock` file and the `charts` directory got created in the Chart `my-app`.
+> Note that the `Chart.lock` file and the `charts` directory got created in the Chart `my-app`.
 
 ## Install a chart with its dependencies
 
@@ -46,7 +46,7 @@ cat ./my-app/values.yaml
 Install the app with its default values.
 
 ```bash
-helm install app my-app
+helm install app ./my-app
 ```
 
 Wait until the pods are ready
@@ -72,7 +72,7 @@ helm uninstall app
 Install the app with the dependency enabled.
 
 ```bash
-helm install app my-app --set my-dependency.enabled=true
+helm install app ./my-app --set my-dependency.enabled=true
 ```
 
 Verify that the dependency was installed
@@ -98,7 +98,7 @@ cat ./my-dependency/values.yaml
 Install the app with the dependency enabled.
 
 ```bash
-helm install app my-app --set my-dependency.enabled=true --set my-dependency.content="Bonjour Helm"
+helm install app ./my-app --set my-dependency.enabled=true --set my-dependency.content="Bonjour Helm"
 ```
 
 Wait until the pods are ready
