@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repository is
 
-This is **training material**, not an application. It is a hands-on Kubernetes Helm course delivered through GitHub Codespaces. Each top-level numbered directory (`01_…` through `12_…`) is one self-contained lab that a trainee works through in order. There is nothing to build or deploy as a product — the "code" is the lab content, and the deliverable is a correct, clear, working lab.
+This is **training material**, not an application. It is a hands-on Kubernetes Helm course delivered through GitHub Codespaces. Each top-level numbered directory (`01_…` through `14_…`) is one self-contained lab that a trainee works through in order. There is nothing to build or deploy as a product — the "code" is the lab content, and the deliverable is a correct, clear, working lab.
 
 The labs run inside a prebuilt devcontainer image (`quay.io/kubermatic-labs/training-ghcs-kubernetes-helm-trainee-environment`) that ships docker, kind, kubectl, kubectx/kubens, helm, and kustomize. A kind cluster (`my-cluster`) plus `cloud-provider-kind` and ingress-nginx are created by `postCreateCommand: /setup_kind_cluster.sh`. The host paths used by trainees live under `/workspaces/kubernetes-helm/<lab>` — lab READMEs `cd` there, so any commands you suggest should match that path.
 
@@ -16,7 +16,7 @@ Every lab follows the same convention:
 - A starter Helm chart (e.g. `color-viewer/`, `my-chart/`, `my-app/`) that is intentionally incomplete — the lab walks the trainee through completing it.
 - `.solution/` — the finished version of the chart. **Starter and solution must stay in sync**: when you change a chart's structure, values, or templates, apply the corresponding change to both the starter and `.solution/`, and make sure the README's edit steps still transform the starter into the solution.
 
-The course arc: manifests-only (`01`) → kustomize (`02`) → first Helm chart (`03`) → rollback (`04`) → values/variables (`05`) → functions (`06`) → includes (`07`) → conditionals (`08`) → `required` (`09`) → tests (`10`) → hooks (`11`) → dependencies (`12`).
+The course arc: manifests-only (`01`) → first Helm chart (`03`) → rollback (`04`) → values/variables (`05`) → functions (`06`) → includes (`07`) → conditionals (`08`) → `required` (`09`) → tests (`10`) → hooks (`11`) → dependencies (`12`) → helmfile (`13`) → kustomize (`14`). There is no lab `02` — the numbering has gaps, so don't assume a missing number is an error.
 
 ## Verifying the environment
 
@@ -24,7 +24,7 @@ The course arc: manifests-only (`01`) → kustomize (`02`) → first Helm chart 
 make verify   # checks .trainingrc, tooling versions, and runs pre-checks.sh
 ```
 
-`pre-checks.sh` confirms the kind containers are up, prints cluster-info, and checks that `INGRESS_IP` is exported. Trainees reach apps via `curl http://${INGRESS_IP}/…` or a port-forward to `ingress-nginx-controller`.
+`pre-checks.sh` confirms the kind containers are up, prints cluster-info, and checks that `INGRESS_IP` is exported. Trainees reach apps via `curl http://${INGRESS_IP}/…`. Before starting the labs the trainee opens a second shell and keeps a port-forward running the whole session — `kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8080:80` — which is what the `https://${CODESPACE_NAME}-8080.app.github.dev/…` URLs in the lab READMEs rely on.
 
 ## Working on labs
 
@@ -35,6 +35,9 @@ helm install <name> ./<chart>            # or: helm install <name> --set key=val
 helm template ./<chart>                  # render without installing — useful to check templating
 helm uninstall <name>                    # every lab ends with a cleanup step
 helm dependency update ./<chart>         # lab 12 only
+helmfile sync   --file <helmfile.yaml>   # lab 13: declarative multi-release apply
+helmfile destroy --file <helmfile.yaml>  # lab 13 teardown
+kustomize build overlays/<env>           # lab 14: render an overlay (or: kubectl apply -k)
 ```
 
 When editing a lab, keep the README's copy-paste blocks runnable end to end inside the devcontainer, and preserve the cleanup section so trainees don't leave dangling releases.
