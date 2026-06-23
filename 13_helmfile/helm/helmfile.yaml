@@ -1,0 +1,19 @@
+releases:
+  - name: training-application-1
+    namespace: training-application-1
+    createNamespace: true
+    chart: oci://quay.io/kubermatic-labs/helm-charts/training-application
+    labels:
+      id: training-application-1
+    version: 1.0.1
+    values:
+      - ./training-application-1-values.yaml
+  - name: training-application-2
+    namespace: training-application-2
+    createNamespace: true
+    chart: oci://quay.io/kubermatic-labs/helm-charts/training-application
+    labels:
+      id: training-application-2
+    version: 1.0.1
+    values:
+      - ./training-application-2-values.yaml

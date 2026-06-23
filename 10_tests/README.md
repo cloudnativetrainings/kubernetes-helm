@@ -19,11 +19,13 @@ A Kubernetes Job to check if the App responds successfully:
 cat ./my-app/templates/tests/test-my-app.yaml
 ```
 
-## Run the test
-
-### Release the app
+## Release the app
 
 ```bash
+# [Terminal-2] watch pods in a second bash
+watch -n 1 kubectl get pods
+
+# release the helm chart
 helm install my-app ./my-app
 ```
 
@@ -54,12 +56,6 @@ metadata:
 
 ```bash
 helm upgrade my-app ./my-app/
-```
-
-### Wait until the pods are ready again
-
-```bash
-kubectl wait pod -l app=my-app --for=condition=ready --timeout=120s
 ```
 
 ### Test the release

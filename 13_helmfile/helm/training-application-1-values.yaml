@@ -1,0 +1,15 @@
+name: training-application-1
+version: v1
+color: lightblue
+message: "Hello from Training Application 1"
+catMode: true
+persistMetaInfo: false
+
+deployment:
+  replicas: 1
+
+service:
+  type: ClusterIP
+
+ingress:
+  enabled: false

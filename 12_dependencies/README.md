@@ -24,6 +24,9 @@ helm dependency list ./my-app
 
 ```bash
 helm dependency update ./my-app
+
+# verify
+helm dependency list ./my-app
 ```
 
 > Note that the `Charts.lock` file and the `charts` directory got created in the Chart `my-app`.

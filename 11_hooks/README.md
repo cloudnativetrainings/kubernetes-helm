@@ -9,8 +9,8 @@ Take a look at the Hooks.
 ```bash
 cd /workspaces/kubernetes-helm/11_hooks
 
+# inspect the hooks
 cat ./my-app/templates/hook-pre-install.yaml
-
 cat ./my-app/templates/hook-pre-delete.yaml
 ```
 
@@ -44,13 +44,24 @@ kubectl delete job --all
 
 Add an additional pre-install Hook by copying the hook-pre-install.yaml file.
 
+### Bring order into the sequence of hooks
+
 Add weights to the pre-install Hooks via the annotation `"helm.sh/hook-weight": "1"`.
+
+### Provoke the second hook to fail
+
+Make use of the command `false` in the second hook, so this process will fail.
 
 ```bash
 helm install hooks ./my-app
 ```
 
 Verify the order of the two pre-install hooks.
+
+```bash
+# note that the helm chart is in failed state due to the failed pre-install hook
+helm ls
+```
 
 ```bash
 helm uninstall hooks
@@ -65,6 +76,8 @@ kubectl delete job --all
 ## Automatically delete Hook jobs
 
 Add the hook-delete-policy to the Hooks via the `"helm.sh/hook-delete-policy": "hook-succeeded"` annotation.
+
+### Fix the second pre-install hook
 
 ```bash
 helm install hooks ./my-app
